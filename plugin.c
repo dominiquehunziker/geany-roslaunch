@@ -77,10 +77,6 @@ static gboolean extract_path(ScintillaObject* const sci, const gint pos, char* p
 
     if (start == -1)
         return FALSE;
-    
-    // make sure that the opening '"' is prefixed with 'file='
-    if (start < 5 || strncmp(&line[start - 5], "file=", 5) != 0)
-        return FALSE;
 
     // search for the closing '"'
     gint end = -1;
@@ -300,7 +296,7 @@ G_MODULE_EXPORT void geany_load_module(GeanyPlugin* plugin) {
     /* Step 1: Set metadata */
     plugin->info->name = "roslaunch";
     plugin->info->description = "Add support for roslaunch files";
-    plugin->info->version = "0.3";
+    plugin->info->version = "0.3.1";
     plugin->info->author = "Dominique Hunziker <dominique.hunziker@gmail.com>";
     
     /* Step 2: Set functions */
